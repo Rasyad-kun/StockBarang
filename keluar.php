@@ -47,6 +47,11 @@ require 'cek.php';
                                 <div class="sb-nav-link-icon"><ion-icon name="share-outline"></ion-icon></div>
                                 Barang Keluar
                             </a>
+                            <a class="nav-link" href="akun.php">
+                                <div class="sb-nav-link-icon"><ion-icon name="person-outline"></ion-icon></div>
+                                Akun Administrasi
+                                
+                            </a>
                             <a class="nav-link" href="logout.php">
                                 Logout
                             </a>

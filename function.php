@@ -339,5 +339,88 @@ if(isset($_POST['hapusbarangkeluar'])){
     }
 }
 
+//menambah akun baru
+if(isset($_POST['addnewakun'])){
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $idchat = $_POST['idchat'];
+
+    $addtotable = mysqli_query($conn,"insert into login (email, password, idchat) values('$email','$password','$idchat')");
+    if($addtotable){
+        //send to telegram
+        $datachatid = mysqli_query($conn, "select * from login");
+        while($ambilid = mysqli_fetch_array($datachatid)){
+
+            $message = "<b>Akun baru ditambahkan! $email</b> telah berhasil ditambah ke dalam <b>Akun Administrasi</b>!";
+            $chatID = $ambilid['idchat'];
+            $token = file_get_contents("private/TOKEN.txt");
+            $result = "https://api.telegram.org/bot$token/sendmessage?chat_id=$chatID&text=$message&parse_mode=HTML";
+            file_get_contents($result, true);     
+        }
+
+        header('location:akun.php');
+    } else {
+        echo 'Gagal';
+        header('location:akun.php');
+    }
+}
+
+//Update Info akun
+if(isset($_POST['updateakun'])){
+    $iduser = $_POST['iduser'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $idchat = $_POST['idchat'];
+
+    $lihatstock = mysqli_query($conn, "select * from login where iduser='$iduser'");
+    $stocknya = mysqli_fetch_array($lihatstock);
+    $emailskrg = $stocknya['email'];
+    $passwordskrg = $stocknya['password'];
+    $idchatskrg = $stocknya['idchat'];
+
+    $update = mysqli_query($conn,"update login set email='$email', password='$password', idchat='$idchat' where iduser ='$iduser'");
+    if($update){
+        //send to telegram
+        $datachatid = mysqli_query($conn, "select * from login");
+        while($ambilid = mysqli_fetch_array($datachatid)){
+
+            $message = "<b>Revisi Akun Administrasi!</b> Ada Perubahan pada <b>$emailskrg</b>! $emailskrg -> $email, $passwordskrg -> $password, $idchatskrg -> $idchat";
+            $chatID = $ambilid['idchat'];
+            $token = file_get_contents("private/TOKEN.txt");
+            $result = "https://api.telegram.org/bot$token/sendmessage?chat_id=$chatID&text=$message&parse_mode=HTML";
+            file_get_contents($result, true);     
+        }
+        
+        header('location:akun.php');
+    } else {
+        echo 'Gagal';
+        header('location:akun.php');
+    }
+}
+
+//Menghapus Barang dari Stock
+if(isset($_POST['hapusakun'])){
+    $iduser = $_POST['iduser'];
+    $email = $_POST['email'];
+
+    $hapus = mysqli_query($conn, "delete from login where iduser='$iduser'");
+    if($hapus){
+        //send to telegram
+        $datachatid = mysqli_query($conn, "select * from login");
+        while($ambilid = mysqli_fetch_array($datachatid)){
+
+            $message = "<b>Akun Dihapus! $email</b> telah berhasil dihapus dari <b>Akun Administrasi</b>!";
+            $chatID = $ambilid['idchat'];
+            $token = file_get_contents("private/TOKEN.txt");
+            $result = "https://api.telegram.org/bot$token/sendmessage?chat_id=$chatID&text=$message&parse_mode=HTML";
+            file_get_contents($result, true);     
+        }
+        
+        header('location:akun.php');
+    } else {
+        echo 'Gagal';
+        header('location:akun.php');
+    }
+}
 
 ?>
