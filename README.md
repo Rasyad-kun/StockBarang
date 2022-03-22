@@ -6,6 +6,29 @@
 5.untuk password `12345` / `admin`<br>
 6.email & password bisa ditambahkan di database
 
+## Masukkan TOKEN dan ID Chat terlebih dahulu untuk mencoba bot!
+**Cara memasukkan Token** <br>
+1.buat folder private <br> 
+2.buat file `TOKEN.txt` <br>
+3.masukkan Token botnya `5272986339:AAE2oFxrolOk_B8yRd9WOwIeUr_acbqLb4Q` <br>
+4.klik save <br>
+![how to add Token](https://github.com/Rasyad-kun/StockBarang/blob/master/add-TOKEN.txt-in-private-folder.jpg)
+<br>
+
+**Cara memasukkan ID Chat** <br>
+1.masuk ke `localhost/stockbarang-main` <br>
+2.masuk ke Akun Administrasi <br>
+3.tambah akun / edit salah satu akun <br>
+4.masukkan ID Chatmu <br>
+5.tekan tombol Submit / Edit <br>
+
+**Cara Mengetahui ID Chat** <br>
+1.masuk ke telegram <br>
+2.cari `IDBot` / `@myidbot` <br>
+3.lalu tekan `/getid` pada pesan yang muncul <br>
+4.maka ID Chatmu akan muncul <br>
+![how to find ID Chat](https://github.com/Rasyad-kun/StockBarang/blob/master/how-to-get-your-id-chat.jpg)
+
 ## Kendala dalam Database!
 **Cara Import Database** <br>
 1.masuk ke `localhost/phpmyadmin` <br> 
