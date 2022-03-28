@@ -50,7 +50,7 @@ require 'cek.php';
                             </a>
                             <a class="nav-link" href="akun.php">
                                 <div class="sb-nav-link-icon"><ion-icon name="person-outline"></ion-icon></div>
-                                Akun Administrasi
+                                Pusat Akun
                                 
                             </a>
                             <a class="nav-link" href="logout.php">

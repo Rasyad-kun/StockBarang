@@ -17,7 +17,7 @@ if(isset($_POST['addnewbarang'])){
         $datachatid = mysqli_query($conn, "select * from login");
         while($ambilid = mysqli_fetch_array($datachatid)){
 
-            $message = "<b>Barang Baru! $namabarang</b> telah berhasil ditambah ke dalam <b>Stock Barang</b>!";
+            $message = "<b>Barang Baru!%0A$namabarang</b> telah berhasil ditambah ke dalam <b>Stock Barang</b>!";
             $chatID = $ambilid['idchat'];
             $token = file_get_contents("private/TOKEN.txt");
             $result = "https://api.telegram.org/bot$token/sendmessage?chat_id=$chatID&text=$message&parse_mode=HTML";
@@ -51,7 +51,7 @@ if(isset($_POST['barangmasuk'])){
         $datachatid = mysqli_query($conn, "select * from login");
         while($ambilid = mysqli_fetch_array($datachatid)){
 
-            $message = "<b>Barang Masuk!</b> Ada <b>$qty</b> stock <b>$namabarang</b> telah dikirm oleh $penerima!";
+            $message = "<b>Barang Masuk!</b> %0AAda <b>$qty</b> stock <b>$namabarang</b> telah dikirm oleh $penerima!";
             $chatID = $ambilid['idchat'];
             $token = file_get_contents("private/TOKEN.txt");
             $result = "https://api.telegram.org/bot$token/sendmessage?chat_id=$chatID&text=$message&parse_mode=HTML";
@@ -86,7 +86,7 @@ if(isset($_POST['addbarangkeluar'])){
         $datachatid = mysqli_query($conn, "select * from login");
         while($ambilid = mysqli_fetch_array($datachatid)){
 
-            $message = "<b>Barang Keluar!</b> Ada <b>$qty</b> stock <b>$namabarang</b> telah dikirm ke $penerima!";
+            $message = "<b>Barang Keluar!</b> %0AAda <b>$qty</b> stock <b>$namabarang</b> telah dikirm ke $penerima!";
             $chatID = $ambilid['idchat'];
             $token = file_get_contents("private/TOKEN.txt");
             $result = "https://api.telegram.org/bot$token/sendmessage?chat_id=$chatID&text=$message&parse_mode=HTML";
@@ -118,7 +118,7 @@ if(isset($_POST['updatebarang'])){
         $datachatid = mysqli_query($conn, "select * from login");
         while($ambilid = mysqli_fetch_array($datachatid)){
 
-            $message = "<b>Revisi Stock Barang!</b> Ada Perubahan pada <b>$namabarangskrg</b>! $namabarangskrg -> $namabarang, $deskripsiskrg -> $deskripsi";
+            $message = "<b>Revisi Stock Barang!</b> Ada Perubahan pada <b>$namabarangskrg</b>!%0A - $namabarangskrg -> $namabarang%0A - $deskripsiskrg -> $deskripsi";
             $chatID = $ambilid['idchat'];
             $token = file_get_contents("private/TOKEN.txt");
             $result = "https://api.telegram.org/bot$token/sendmessage?chat_id=$chatID&text=$message&parse_mode=HTML";
@@ -144,7 +144,7 @@ if(isset($_POST['hapusbarang'])){
         $datachatid = mysqli_query($conn, "select * from login");
         while($ambilid = mysqli_fetch_array($datachatid)){
 
-            $message = "<b>Barang Dihapus! $namabarang</b> telah berhasil dihapus dari <b>Stock Barang</b>!";
+            $message = "<b>Barang Dihapus! %0A$namabarang</b> telah berhasil dihapus dari <b>Stock Barang</b>!";
             $chatID = $ambilid['idchat'];
             $token = file_get_contents("private/TOKEN.txt");
             $result = "https://api.telegram.org/bot$token/sendmessage?chat_id=$chatID&text=$message&parse_mode=HTML";
@@ -180,7 +180,7 @@ if(isset($_POST['updatebarangmasuk'])){
     $datachatid = mysqli_query($conn, "select * from login");
     while($ambilid = mysqli_fetch_array($datachatid)){
 
-        $message = "<b>Revisi Barang Masuk!</b> Ada perubahan pada <b>$namabarang</b>! $qtyskrg -> $qty, $keteranganskrg -> $keterangan";
+        $message = "<b>Revisi Barang Masuk!</b> Ada perubahan pada <b>$namabarang</b>!%0A - $qtyskrg -> $qty%0A - $keteranganskrg -> $keterangan";
         $chatID = $ambilid['idchat'];
         $token = file_get_contents("private/TOKEN.txt");
         $result = "https://api.telegram.org/bot$token/sendmessage?chat_id=$chatID&text=$message&parse_mode=HTML";
@@ -235,7 +235,7 @@ if(isset($_POST['hapusbarangmasuk'])){
         $datachatid = mysqli_query($conn, "select * from login");
         while($ambilid = mysqli_fetch_array($datachatid)){
 
-            $message = "<b>Barang Dihapus! $qty</b> stock <b>$namabarang</b> telah berhasil dihapus dari <b>Barang Masuk</b>!";
+            $message = "<b>Barang Dihapus! %0A$qty</b> stock <b>$namabarang</b> telah berhasil dihapus dari <b>Barang Masuk</b>!";
             $chatID = $ambilid['idchat'];
             $token = file_get_contents("private/TOKEN.txt");
             $result = "https://api.telegram.org/bot$token/sendmessage?chat_id=$chatID&text=$message&parse_mode=HTML";
@@ -271,7 +271,7 @@ if(isset($_POST['updatebarangkeluar'])){
     $datachatid = mysqli_query($conn, "select * from login");
     while($ambilid = mysqli_fetch_array($datachatid)){
 
-        $message = "<b>Revisi Barang Keluar!</b> Ada perubahan pada <b>$namabarang</b>! $qtyskrg -> $qty, $penerimaskrg -> $penerima";
+        $message = "<b>Revisi Barang Keluar!</b> Ada perubahan pada <b>$namabarang</b>!%0A - $qtyskrg -> $qty%0A - $penerimaskrg -> $penerima";
         $chatID = $ambilid['idchat'];
         $token = file_get_contents("private/TOKEN.txt");
         $result = "https://api.telegram.org/bot$token/sendmessage?chat_id=$chatID&text=$message&parse_mode=HTML";
@@ -325,7 +325,7 @@ if(isset($_POST['hapusbarangkeluar'])){
         $datachatid = mysqli_query($conn, "select * from login");
         while($ambilid = mysqli_fetch_array($datachatid)){
 
-            $message = "<b>Barang Dihapus! $qty</b> stock <b>$namabarang</b> telah berhasil dihapus dari <b>Barang Keluar</b>!";
+            $message = "<b>Barang Dihapus! %0A$qty</b> stock <b>$namabarang</b> telah berhasil dihapus dari <b>Barang Keluar</b>!";
             $chatID = $ambilid['idchat'];
             $token = file_get_contents("private/TOKEN.txt");
             $result = "https://api.telegram.org/bot$token/sendmessage?chat_id=$chatID&text=$message&parse_mode=HTML";
@@ -351,7 +351,7 @@ if(isset($_POST['addnewakun'])){
         $datachatid = mysqli_query($conn, "select * from login");
         while($ambilid = mysqli_fetch_array($datachatid)){
 
-            $message = "<b>Akun baru ditambahkan! $email</b> telah berhasil ditambah ke dalam <b>Akun Administrasi</b>!";
+            $message = "<b>Akun baru ditambahkan! %0A$email</b> telah berhasil ditambah ke dalam <b>Pusat Akun</b>!";
             $chatID = $ambilid['idchat'];
             $token = file_get_contents("private/TOKEN.txt");
             $result = "https://api.telegram.org/bot$token/sendmessage?chat_id=$chatID&text=$message&parse_mode=HTML";
@@ -384,7 +384,7 @@ if(isset($_POST['updateakun'])){
         $datachatid = mysqli_query($conn, "select * from login");
         while($ambilid = mysqli_fetch_array($datachatid)){
 
-            $message = "<b>Revisi Akun Administrasi!</b> Ada Perubahan pada <b>$emailskrg</b>! $emailskrg -> $email, $passwordskrg -> $password, $idchatskrg -> $idchat";
+            $message = "<b>Revisi Pusat Akun!</b> Ada Perubahan pada <b>$emailskrg</b>!%0A - $emailskrg -> $email%0A - $passwordskrg -> $password%0A - $idchatskrg -> $idchat";
             $chatID = $ambilid['idchat'];
             $token = file_get_contents("private/TOKEN.txt");
             $result = "https://api.telegram.org/bot$token/sendmessage?chat_id=$chatID&text=$message&parse_mode=HTML";
@@ -398,7 +398,7 @@ if(isset($_POST['updateakun'])){
     }
 }
 
-//Menghapus Barang dari Stock
+//Menghapus akun dari pusat akun
 if(isset($_POST['hapusakun'])){
     $iduser = $_POST['iduser'];
     $email = $_POST['email'];
@@ -409,7 +409,7 @@ if(isset($_POST['hapusakun'])){
         $datachatid = mysqli_query($conn, "select * from login");
         while($ambilid = mysqli_fetch_array($datachatid)){
 
-            $message = "<b>Akun Dihapus! $email</b> telah berhasil dihapus dari <b>Akun Administrasi</b>!";
+            $message = "<b>Akun Dihapus! %0A$email</b> telah berhasil dihapus dari <b>Pusat Akun</b>!";
             $chatID = $ambilid['idchat'];
             $token = file_get_contents("private/TOKEN.txt");
             $result = "https://api.telegram.org/bot$token/sendmessage?chat_id=$chatID&text=$message&parse_mode=HTML";

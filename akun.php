@@ -50,7 +50,7 @@ require 'cek.php';
                             </a>
                             <a class="nav-link active" href="akun.php">
                                 <div class="sb-nav-link-icon"><ion-icon name="person-outline"></ion-icon></div>
-                                Akun Administrasi
+                                Pusat Akun
                                 
                             </a>
                             <a class="nav-link" href="logout.php">
@@ -65,7 +65,7 @@ require 'cek.php';
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Akun Administrasi</h1>
+                        <h1 class="mt-4">Pusat Akun</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Selamat Datang</li>
                         </ol>
